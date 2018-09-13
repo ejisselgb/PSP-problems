@@ -6,30 +6,39 @@ public class Calculador {
 
 	public static void main(String[] args) {
 		
-		Lista valoresLista = new Lista();
+		Lista valoresLista = new Lista();;
 		
 		double numero;
 		int opcion=0;
 		do{
 			try{
-				opcion=Integer.parseInt(JOptionPane.showInputDialog(null, "1.Agregar un numero a la lista"+
-			"\n2. Calcular Media \n3. Calcular desviacion estandar \n4. Salir", "Menu de opciones", 3));
+				opcion=Integer.parseInt(JOptionPane.showInputDialog(null, "1.Agregar valores a X"+
+			"\n2. Agregar valores a Y \n3. Calcular Regresion y correlacion \n4. Salir", "Menu de opciones", 3));
 				
 				switch(opcion){
 				case 1:
 					try{
-						numero = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingresa el elemento",
-								"Insertando al inicio",3));
-						valoresLista.agregarLista(numero);
+						numero = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingresa el numero",
+								"Insertando valores al listado X",3));
+						valoresLista.agregarLista1(numero);
 					}catch(NumberFormatException e){
 						JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
 					}
 					break;
 				case 2:
-					valoresLista.media();
+					try{
+						numero = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingresa el numero",
+								"Insertando valores al listado Y",3));
+						valoresLista.agregarLista2(numero);
+					}catch(NumberFormatException e){
+						JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
+					}
 					break;
 				case 3:
-					valoresLista.mediaDesviacion();
+					valoresLista.media();
+					valoresLista.elevado();
+					valoresLista.multiplicar();
+					valoresLista.correlacion();
 					break;
 				case 4:
 					break;
@@ -39,7 +48,6 @@ public class Calculador {
 				
 			}
 		}while(opcion!=4);
-
 	}
 
 }
